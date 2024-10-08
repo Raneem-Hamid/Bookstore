@@ -1,3 +1,6 @@
+using Bookstore.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace Bookstore
 {
     public class Program
@@ -7,7 +10,16 @@ namespace Bookstore
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            // connection configration
+
+            var ConnectionStringVar = builder.Configuration.GetConnectionString("DefaultConnection");
+
+
+            // DbContext Configuration
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(ConnectionStringVar));
 
             var app = builder.Build();
 
@@ -26,11 +38,11 @@ namespace Bookstore
 
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+			app.MapControllerRoute(
+				 name: "default",
+				 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            app.Run();
+			app.Run();
         }
     }
 }

@@ -1,0 +1,56 @@
+﻿@model Bookstore.Models.Book
+
+<div>
+    
+    <label>
+        <span>Title</span>
+        <input asp-for="Title" class="col-md-12" />
+    </label>
+
+    <label>
+        <span>Author</span>
+        <input asp-for="Author" class="col-md-12" />
+    </label>
+    <label>
+        <span>Genre</span>
+        <input asp-for="Genre" class="col-md-12" />
+    </label>
+    <label >
+        <span>Price</span>
+        <input asp-for="Price" class="col-md-12" />
+    </label>
+    <label>
+        <span>Description</span>
+        
+    </label>
+    <textarea asp-for="Description" class="col-md-12"></textarea>
+    <label>
+        <span>Image</span>
+        <input asp-for="ImageUrl" class="col-md-12" />
+    </label>
+
+    @if (Model.Id > 0)
+    {
+        <input type="hidden" asp-for="Id" class="col-md-12" />
+    }
+
+
+@* <div asp-validation-summary="All"></div>
+ *@
+@if (Model.Id > 0)
+{
+    <div class="btn-wrap">
+            <button type="submit" class="btn btn-outline-accent btn-accent-arrow">
+                Update
+            </button>
+    </div>
+}
+else
+{
+    <div class="btn-wrap">
+            <button type="submit" class="btn btn-outline-accent btn-accent-arrow">
+            Submit
+        </button>
+    </div>
+}
+</div>

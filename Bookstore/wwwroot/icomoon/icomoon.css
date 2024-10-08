@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?23qo56');
+    src: url('fonts/icomoon.eot?23qo56#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?23qo56') format('truetype'), url('fonts/icomoon.woff?23qo56') format('woff'), url('fonts/icomoon.svg?23qo56#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Existing icons */
+.icon-ns-arrow-right:before {
+    content: "\e90b";
+}
+
+.icon-cancel:before {
+    content: "\e904";
+}
+
+.icon-arrow-left:before {
+    content: "\e900";
+}
+
+.icon-arrow-right:before {
+    content: "\e901";
+}
+
+.icon-user:before {
+    content: "\e907";
+}
+
+.icon-search:before {
+    content: "\e905";
+}
+
+.icon-currency-dollar:before {
+    content: "\e90a";
+}
+
+.icon-close:before {
+    content: "\e909";
+}
+
+.icon-twitter:before {
+    content: "\f099";
+}
+
+.icon-facebook:before {
+    content: "\f09a";
+}
+
+.icon-youtube-play:before {
+    content: "\f16a";
+}
+
+.icon-paper-plane:before {
+    content: "\f1d8";
+}
+
+.icon-pinterest-p:before {
+    content: "\f231";
+}
+
+/* New icons for edit and delete */
+.icon-pencil2:before {
+    content: "\e905";
+}
+
+.icon-cross:before {
+    content: "\ea0f";
+}

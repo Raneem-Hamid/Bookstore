@@ -1,0 +1,19 @@
+﻿@model Bookstore.Models.Book
+<h1>Add Books</h1>
+
+<section id="best-selling" class="leaf-pattern-overlay">
+    <div class="container">
+        <div class="row justify-content-center">
+
+
+
+            <div class="row">
+                <form method="post" asp-action="EditBook" asp-controller="Book" class="d-flex justify-content-center">
+                    <partial name="Form" />
+                </form>
+                <a asp-action="GetAllBooks">View All Books</a>
+
+            </div>
+        </div>
+    </div>
+</section>
