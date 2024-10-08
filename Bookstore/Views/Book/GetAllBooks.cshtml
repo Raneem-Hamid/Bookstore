@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Bookstore.Models.Book>
+<section id="featured-books" class="py-5 my-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="section-header align-center">
+						
+						<h2 class="section-title">All Books</h2>
+					</div>
+
+					<div class="product-list" >
+						<div class="row">
+							@foreach(var book in Model)
+        {
+							<div class="col-md-3">
+								<div class="product-item">
+									<figure class="product-style">
+											<img src="@book.ImageUrl" alt="Books" class="product-item">
+												<button type="button" class="add-to-cart">
+											<a  asp-action="BookDetails" data-product-tile="add-to-cart" asp-route-id="@book.Id">View Details</a></button>
+									</figure>
+									<figcaption>
+										<h3>@book.Title</h3>
+										<span>@book.Genre</span>
+											<div class="item-price">@book.Price JD</div>
+									</figcaption>
+								</div>
+							</div>
+		}
+							
+
+						</div><!--ft-books-slider-->
+					</div><!--grid-->
+
+
+				</div><!--inner-content-->
+			</div>
+
+			
+		</div>
+	</section>
+
+	<style>
+
+#featured-books .product-list {
+  border-bottom: 1px solid #E0E0E0;
+  margin-bottom: 30px;
+}
+
+</style>

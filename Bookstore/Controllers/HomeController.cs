@@ -1,5 +1,7 @@
-﻿using Bookstore.Models;
+﻿using Bookstore.Data;
+using Bookstore.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Bookstore.Controllers
@@ -7,15 +9,21 @@ namespace Bookstore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly AppDbContext _context;
+        public HomeController(ILogger<HomeController> logger , AppDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var latestBooks = await _context.Books
+                                     .OrderByDescending(b => b.Id)  // Or use CreatedDate if applicable
+                                     .Take(2)  // Take the latest 2 books
+                                     .ToListAsync();
+
+            return View(latestBooks);  // Pass the books to the view
         }
 
         public IActionResult Privacy()
@@ -28,5 +36,7 @@ namespace Bookstore.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+       
     }
 }
